@@ -1,0 +1,38 @@
+<ion-content [fullscreen]="true">
+  <div class="mainDiv">
+    <div class="ion-margin-top ion-padding">
+      <img src="assets/icon/ost-logo.png">
+    </div>
+    
+    <form [formGroup]="notificationForm" (ngSubmit)="submit()">
+      <ion-list class="ionInput" mode="ios">
+        <ion-item color="none">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" placeholder="Enter email address"></ion-input>
+        </ion-item>
+        <small class="error-message" *ngIf="notificationForm.get('email')?.invalid && (notificationForm.get('email')?.dirty || notificationForm.get('email')?.touched)">
+          Enter valid email id
+        </small>
+      
+        <ion-item color="none">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input formControlName="password" type="password"  placeholder="Enter password"></ion-input>
+        </ion-item>
+        <small class="error-message" *ngIf="notificationForm.get('password')?.invalid && (notificationForm.get('password')?.dirty || notificationForm.get('password')?.touched)">
+          Enter your password
+        </small>
+
+        <div class="ion-text-end ion-padding-top">
+          <ion-text color="secondary" (click)="forgotPassword()" >Forgot Password?</ion-text>
+        </div>
+        <ion-button class="ion-margin-top ion-margin-bottom" type="submit" color="primary" expand="block" [disabled]="!notificationForm.valid" >Login</ion-button>
+      
+        <div class="ion-text-end">
+          <ion-text color="secondary" (click)="register()" >Don't have an account? Sign-Up</ion-text>
+        </div>
+      </ion-list>
+    </form>
+
+  </div>
+  
+</ion-content>

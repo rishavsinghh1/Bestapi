@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar mode="ios" color="primary">
+    <ion-title>Forgot Password</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="mainDiv">
+    <div class="ion-margin ion-padding">
+      <img src="assets/icon/ost-logo.png">
+    </div>
+    
+    <form [formGroup]="notificationForm" (ngSubmit)="submit()">
+      <ion-list>
+        <ion-item color="none">
+          <ion-label position="floating">Email Id</ion-label>
+          <ion-input  placeholder="Enter registered email address" formControlName="email"></ion-input>
+        </ion-item>
+        <small class="error-message" *ngIf="notificationForm.get('email')?.invalid && (notificationForm.get('email')?.dirty || notificationForm.get('email')?.touched)">
+          Enter valid email id
+        </small>
+      
+        <ion-button class="ion-margin-top ion-margin-bottom" type="submit" color="primary" expand="block" [disabled]="!notificationForm.valid" >Submit</ion-button>
+      </ion-list>
+    </form>
+
+  </div>
+  
+</ion-content>

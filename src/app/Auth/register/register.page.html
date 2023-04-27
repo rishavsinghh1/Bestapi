@@ -1,0 +1,66 @@
+<ion-content [fullscreen]="true">
+  <div class="mainDiv">
+    <div class="ion-margin ion-padding">
+      <img src="assets/icon/ost-logo.png">
+    </div>
+    <form [formGroup]="notificationForm" (ngSubmit)="submit()">
+      <ion-list class="ionInput ion-no-padding" mode="ios">
+        <ion-item color="none" >
+          <ion-label position="floating">Full Name</ion-label>
+          <ion-input formControlName="name" placeholder="Enter your name"></ion-input>
+        </ion-item>
+        <small class="error-message" *ngIf="notificationForm.get('name')?.invalid && (notificationForm.get('name')?.dirty || notificationForm.get('name')?.touched)">
+          Enter your full name
+        </small>
+
+        <ion-item color="none">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input formControlName="email" placeholder="Enter email address"></ion-input>
+        </ion-item>
+        <small class="error-message" *ngIf="notificationForm.get('email')?.invalid && (notificationForm.get('email')?.dirty || notificationForm.get('email')?.touched)">
+          Enter valid email id
+        </small>
+
+        <ion-item color="none">
+          <ion-label position="floating">Mobile</ion-label>
+          <ion-input formControlName="mobile" placeholder="Enter email address"></ion-input>
+        </ion-item>
+        <small class="error-message" *ngIf="notificationForm.get('mobile')?.invalid && (notificationForm.get('mobile')?.dirty || notificationForm.get('mobile')?.touched)">
+          Enter your mobile number
+        </small>
+
+        <ion-item color="none">
+          <ion-label position="floating">Reference Code</ion-label>
+          <ion-input formControlName="reference"  placeholder="Enter password"></ion-input>
+        </ion-item>
+        <small class="error-message" *ngIf="notificationForm.get('reference')?.invalid && (notificationForm.get('reference')?.dirty || notificationForm.get('reference')?.touched)">
+          Enter valid 6 digit reference code
+        </small>
+      
+        <ion-item color="none">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" formControlName="password"  placeholder="Enter password"></ion-input>
+        </ion-item>
+        <small class="error-message" *ngIf="notificationForm.get('password')?.invalid && (notificationForm.get('password')?.dirty || notificationForm.get('password')?.touched)">
+          Enter your password
+        </small>
+
+        <ion-item color="none">
+          <ion-label position="floating">Confirm Password</ion-label>
+          <ion-input type="password" formControlName="cpassword"  placeholder="Enter password"></ion-input>
+        </ion-item>
+        <small class="error-message" *ngIf="notificationForm.get('cpassword')?.invalid && (notificationForm.get('cpassword')?.dirty || notificationForm.get('cpassword')?.touched)">
+          Confirm password mismatch
+        </small>
+
+        <ion-button class="ion-margin-top ion-margin-bottom" type="submit" color="primary" expand="block" [disabled]="!notificationForm.valid"  >Register</ion-button>
+      
+        <div class="ion-text-end">
+          <ion-text color="secondary" (click)="login()" >Already have an account? Sign-In</ion-text>
+        </div>
+      </ion-list>
+    </form>
+
+  </div>
+  
+</ion-content>
